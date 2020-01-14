@@ -1,5 +1,6 @@
 .App {
-  text-align: center;
+  margin: 3rem;
+  text-align: left;
 }
 
 .App-logo {
@@ -19,4 +20,9 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+.ant-checkbox-wrapper,
+.ant-radio-wrapper {
+  display: block;
 }
