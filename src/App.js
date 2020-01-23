@@ -4,18 +4,27 @@ import './App.css';
 
 // COMPONENTS
 
-// import Marquee from './components/marquee.js';
-// import Questions from './components/questions.js';
-// import RestaurantList from './components/restaurantList.js';
+import Marquee from './components/marquee.js';
+import Questions from './components/questions.js';
+import RestaurantList from './components/restaurantList.js';
 
 // INITIAL STATE
 import getState from './getState.js';
+// import getStateFirebase from './getStateFirebase.js';
 
 // REDUCER
 import curriedRestaurantReducer from './reducers/restaurantReducer.js'
 
 // USER INTERFACE
 import { Checkbox, Radio } from 'antd';
+
+// USECONTEXT
+const MyContext = React.createContext();
+
+function MyProvider({ children }) {
+  // The children are the App component and its descendants
+  return <MyContext.Provider>{children}</MyContext.Provider>
+}
 
 function App() {
 
@@ -167,11 +176,19 @@ function App() {
         })}
       </ul>
 
-      {/* <Marquee />
+      <Marquee />
       <Questions />
-      <RestaurantList /> */}
+      <RestaurantList />
     </div>
   );
 }
 
-export default App;
+// export default App;
+
+export default () => {
+  return (
+    <MyProvider>
+      <App />
+    </MyProvider>
+  );
+};
