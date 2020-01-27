@@ -4,9 +4,9 @@ import './App.css';
 
 // COMPONENTS
 
-import SiteHeader from './components/SiteHeader.js/index.js';
-import QuestionsList from './components/QuestionsList.js/index.js.js';
-import RestaurantList from './components/RestaurantList.js';
+import SiteHeader from './components/SiteHeader/SiteHeader.js';
+import QuestionList from './components/QuestionList/QuestionList.js';
+import RestaurantList from './components/RestaurantsList/RestaurantList.js';
 
 // INITIAL STATE
 import getState from './getState.js';
@@ -40,7 +40,7 @@ function App() {
   return (
     <div className="App">
       <SiteHeader />
-      <QuestionsList />
+      <QuestionList />
       <RestaurantList />
     </div>
   );
