@@ -1,3 +1,16 @@
 .restaurant-list {
-    margin: 20px;
+    margin: 3rem;
+
+    ul {
+        padding: 0;
+        list-style: none;
+
+        li {
+            font-size: 0.75rem;
+        }
+    }
+
+    hr {
+        margin: 2rem 0 1.75rem;
+    }
 }

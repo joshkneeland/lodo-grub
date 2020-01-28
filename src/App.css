@@ -9,3 +9,11 @@
 .ant-radio-wrapper {
   display: block;
 }
+
+.set-display-hideSiteHeader {
+  display: none;
+}
+
+.set-display-showQuestionList {
+  display: block;
+}

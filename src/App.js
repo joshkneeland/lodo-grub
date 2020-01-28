@@ -1,6 +1,8 @@
 // REACT SETUP
 import React, { useReducer, useEffect } from 'react';
 import './App.css';
+import { Route, NavLink, Switch } from 'react-router-dom';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 // COMPONENTS
 
@@ -25,7 +27,7 @@ function MyProvider({ children }) {
     // show filtered results on load
     if (!state.initialLoad) {
       state.initialLoad = true
-      dispatch()
+      dispatch();
     }
   });
 
@@ -37,11 +39,20 @@ function MyProvider({ children }) {
 }
 
 function App() {
+
+  const { state } = React.useContext(MyContext);
+
   return (
     <div className="App">
-      <SiteHeader />
-      <QuestionList />
-      <RestaurantList />
+      <TransitionGroup>
+        <CSSTransition timeout={300} classNames="fade">
+          <Switch>
+            <Route exact path='/' component={SiteHeader} />
+            <Route exact path='/questions' component={QuestionList} />
+            <Route exact path='/restaurants' component={RestaurantList} />
+          </Switch>
+        </CSSTransition>
+      </TransitionGroup>
     </div>
   );
 }
