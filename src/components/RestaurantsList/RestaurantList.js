@@ -22,7 +22,9 @@ const RestaurantList = () => {
                     </div>
                 })}
             </ul>
-            <NavLink exact to="/questions" activeClassName="active">Back To Questions</NavLink>
+            <p>
+                <NavLink exact to="/questions" activeClassName="active">Back To Questions</NavLink>
+            </p>
         </div>
     )
 }

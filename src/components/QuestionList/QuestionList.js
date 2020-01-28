@@ -144,7 +144,9 @@ function QuestionList() {
                 dispatch()
             }}>
             </Radio.Group>
-            <NavLink exact to="/restaurants" activeClassName="active">Search Available Restaurants</NavLink>
+            <p>
+                <NavLink exact to="/restaurants" activeClassName="active">Search Available Restaurants</NavLink>
+            </p>
         </div>
     )
 }

@@ -12,7 +12,9 @@ const SiteHeader = () => {
             <div className="site-header-body-wrap">
                 <p>With all of the restaurant choices in the downtown Denver area, it can be tough to pick a spot to eat at!</p>
                 <p>So this site takes all of the guess work out for you.</p>
-                <NavLink exact to="/questions" activeClassName="active">Find your restaurant</NavLink>
+                <p>
+                    <NavLink exact to="/questions" activeClassName="active">Find your restaurant</NavLink>
+                </p>
             </div>
         </div>
     )

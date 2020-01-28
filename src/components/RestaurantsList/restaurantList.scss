@@ -1,5 +1,11 @@
 .restaurant-list {
-    margin: 3rem;
+    padding: 3rem;
+    text-align: left;
+    background: url(../../images/lodo-grub-bg-white.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 
     ul {
         padding: 0;
@@ -12,5 +18,21 @@
 
     hr {
         margin: 2rem 0 1.75rem;
+    }
+
+    p {
+        &:last-child {
+            padding-bottom: 0.1rem;
+            border-bottom: 1px solid #41AFCC;
+            display: block;
+            width: 122px;
+            font-size: 0.75rem;
+        }
+    }
+
+    a {
+        color: #41AFCC;
+        text-transform: uppercase;
+        text-decoration: none;
     }
 }
