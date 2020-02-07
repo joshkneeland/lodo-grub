@@ -2,14 +2,44 @@ import React from 'react';
 import './restaurantList.scss';
 import { MyContext } from '../../App.js';
 import { NavLink } from 'react-router-dom';
+import { motion } from "framer-motion";
 
 const RestaurantList = () => {
     const { state } = React.useContext(MyContext);
 
+    const pageVariants = {
+        initial: {
+            opacity: 0,
+            transition: {
+                delay: 1
+            }
+        },
+        in: {
+            opacity: 1,
+            transition: {
+                when: "beforeChildren",
+                duration: 0.5
+            },
+        },
+        out: {
+            opacity: 0,
+            transition: {
+                when: "afterChildren",
+                duration: 0.5
+            },
+        }
+    };
+
     return (
-        <div className="restaurant-list">
+        <motion.div
+            initial="initial"
+            animate="in"
+            exit="out"
+            variants={pageVariants}
+            className="restaurant-list">
+            <h2>Filtered Restaurants:</h2>
             <ul>
-                Filtered Restaurants: {state.filteredRestaurants.map(rest => {
+                {state.filteredRestaurants.map(rest => {
                     return <div key={rest.name}>
                         <li key={rest.name}>{rest.name}</li>
                         <li key={rest.restaurantStyle}>{rest.restaurantStyle}</li>
@@ -22,10 +52,14 @@ const RestaurantList = () => {
                     </div>
                 })}
             </ul>
+            {
+                state.filteredRestaurants.length === 0 &&
+                <p>There are no restaurants that meet your specification. Please try again.</p>
+            }
             <p>
                 <NavLink exact to="/questions" activeClassName="active">Back To Questions</NavLink>
             </p>
-        </div>
+        </motion.div>
     )
 }
 

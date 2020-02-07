@@ -17,3 +17,38 @@
 .set-display-showQuestionList {
   display: block;
 }
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+.AppTransition-entered {
+  background-color: red;
+}
+
+.AppTransition-entered {
+  animation-name: example;
+  animation-duration: 4s;
+}
+
+@keyframes example {
+  0% {background-color: red;}
+  25% {background-color: yellow;}
+  50% {background-color: blue;}
+  75% {background-color: green;}
+  100% {background-color: red;}
+}

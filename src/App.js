@@ -1,8 +1,8 @@
 // REACT SETUP
 import React, { useReducer, useEffect } from 'react';
 import './App.css';
-import { Route, NavLink, Switch } from 'react-router-dom';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { Route, Switch } from 'react-router-dom';
+import { AnimatePresence } from "framer-motion";
 
 // COMPONENTS
 
@@ -44,15 +44,13 @@ function App() {
 
   return (
     <div className="App">
-      <TransitionGroup>
-        <CSSTransition timeout={300} classNames="fade">
-          <Switch>
-            <Route exact path='/' component={SiteHeader} />
-            <Route exact path='/questions' component={QuestionList} />
-            <Route exact path='/restaurants' component={RestaurantList} />
-          </Switch>
-        </CSSTransition>
-      </TransitionGroup>
+      <AnimatePresence exitBeforeEnter>
+        <Switch>
+          <Route exact path='/' component={SiteHeader} />
+          <Route exact path='/questions' component={QuestionList} />
+          <Route exact path='/restaurants' component={RestaurantList} />
+        </Switch>
+      </AnimatePresence>
     </div>
   );
 }

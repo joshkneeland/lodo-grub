@@ -3,6 +3,7 @@ import './questionList.scss';
 import { Checkbox, Radio } from 'antd';
 import { MyContext } from '../../App.js';
 import { NavLink } from 'react-router-dom';
+import { motion } from "framer-motion";
 
 function QuestionList() {
 
@@ -73,81 +74,138 @@ function QuestionList() {
         { label: 'No Preference', value: 'No Preference' }
     ];
 
+    const pageVariants = {
+        initial: {
+            opacity: 0,
+        },
+        in: {
+            opacity: 1,
+            transition: {
+                when: "beforeChildren",
+                duration: 1
+            },
+        },
+        out: {
+            opacity: 0,
+            transition: {
+                when: "afterChildren",
+                duration: 0.5,
+                delay: 2
+            },
+        }
+    };
+
+    const questionVariants = {
+        initial: {
+            opacity: 0,
+        },
+        in: {
+            opacity: 1,
+            transition: {
+                when: "beforeChildren",
+                duration: 1,
+                delay: 0.5
+            },
+        },
+        out: {
+            opacity: 0,
+            transition: {
+                when: "afterChildren",
+                duration: 0.5
+            },
+        },
+        transition: {
+            duration: 2,
+            ease: "easeInOut"
+        }
+    };
+
     return (
-        <div className="question-list">
-            <p>Question 1: What style of restaurant is this?</p>
-            <Checkbox.Group options={foodOptions} onChange={(e) => {
-                state.styleFilter = e
-                dispatch()
-            }} />
-            <hr></hr>
-            <p>Question 2: What kind of lunch options are offered?</p>
-            <Checkbox.Group options={foodOptionsTwo} onChange={(e) => {
-                state.hoursFilter = e
-                dispatch()
-            }} />
-            <hr></hr>
-            <p>Question 3: How much time do you have to eat?</p>
-            <Radio.Group options={foodOptionsThree} onChange={(e) => {
-                state.timeToEatFilter = [];
-                state.timeToEatFilter.push(e.target.value);
-                dispatch()
-            }}>
-            </Radio.Group>
-            <hr></hr>
-            <p>Question 4: How expensive of a meal are you looking for?</p>
-            <Checkbox.Group options={foodOptionsFour} onChange={(e) => {
-                state.mealCostFilter = e
-                dispatch()
-            }} />
-            <hr></hr>
-            <p>Question 5: How healthy of a meal are you looking for?</p>
-            <Checkbox.Group options={foodOptionsFive} onChange={(e) => {
-                state.healthinessFilter = e
-                dispatch()
-            }} />
-            <hr></hr>
-            <p>Question 6: What kind of ethnicity of cuisine are you looking to?</p>
-            <Checkbox.Group options={foodOptionsSix} onChange={(e) => {
-                state.ethnicityFilter = e
-                dispatch()
-            }} />
-            <hr></hr>
-            <p>Question 7: Does this restaurant serve alcohol?</p>
-            <Radio.Group options={foodOptionsSeven} onChange={(e) => {
-                state.serveAlcoholFilter = [];
-                state.serveAlcoholFilter.push(String(e.target.value));
-                dispatch()
-            }}>
-            </Radio.Group>
-            <hr></hr>
-            <p>Question 8: Does this restaurant take reservations?</p>
-            <Radio.Group options={foodOptionsEight} onChange={(e) => {
-                state.reservationsFilter = [];
-                state.reservationsFilter.push(String(e.target.value));
-                dispatch()
-            }}>
-            </Radio.Group>
-            <hr></hr>
-            <p>Question 9: Does this restaurant offer delivery or catering services?</p>
-            <Radio.Group options={foodOptionsNine} onChange={(e) => {
-                state.deliveryCateringFilter = [];
-                state.deliveryCateringFilter.push(String(e.target.value));
-                dispatch()
-            }}>
-            </Radio.Group>
-            <hr></hr>
-            <p>Question 10: Does this restaurant have dietary restrictions (ex: Gluten Free, Vegan)?</p>
-            <Radio.Group options={foodOptionsTen} onChange={(e) => {
-                state.dietaryRestrictionsFilter = [];
-                state.dietaryRestrictionsFilter.push(String(e.target.value));
-                dispatch()
-            }}>
-            </Radio.Group>
-            <p>
-                <NavLink exact to="/restaurants" activeClassName="active">Search Available Restaurants</NavLink>
-            </p>
-        </div>
+        <motion.div
+            initial="initial"
+            animate="in"
+            exit="out"
+            variants={pageVariants}
+            className="question-list">
+            <motion.div
+                initial="initial"
+                animate="in"
+                exit="out"
+                variants={questionVariants}>
+                <p>Question 1: What style of restaurant is this?</p>
+                <Checkbox.Group options={foodOptions} onChange={(e) => {
+                    state.styleFilter = e
+                    dispatch()
+                }} />
+                <hr></hr>
+                <p>Question 2: What kind of lunch options are offered?</p>
+                <Checkbox.Group options={foodOptionsTwo} onChange={(e) => {
+                    state.hoursFilter = e
+                    dispatch()
+                }} />
+                <hr></hr>
+                <p>Question 3: How much time do you have to eat?</p>
+                <Radio.Group options={foodOptionsThree} onChange={(e) => {
+                    state.timeToEatFilter = [];
+                    state.timeToEatFilter.push(e.target.value);
+                    dispatch()
+                }}>
+                </Radio.Group>
+                <hr></hr>
+                <p>Question 4: How expensive of a meal are you looking for?</p>
+                <Checkbox.Group options={foodOptionsFour} onChange={(e) => {
+                    state.mealCostFilter = e
+                    dispatch()
+                }} />
+                <hr></hr>
+                <p>Question 5: How healthy of a meal are you looking for?</p>
+                <Checkbox.Group options={foodOptionsFive} onChange={(e) => {
+                    state.healthinessFilter = e
+                    dispatch()
+                }} />
+                <hr></hr>
+                <p>Question 6: What kind of ethnicity of cuisine are you looking to?</p>
+                <Checkbox.Group options={foodOptionsSix} onChange={(e) => {
+                    state.ethnicityFilter = e
+                    dispatch()
+                }} />
+                <hr></hr>
+                <p>Question 7: Does this restaurant serve alcohol?</p>
+                <Radio.Group options={foodOptionsSeven} onChange={(e) => {
+                    state.serveAlcoholFilter = [];
+                    state.serveAlcoholFilter.push(String(e.target.value));
+                    dispatch()
+                }}>
+                </Radio.Group>
+                <hr></hr>
+                <p>Question 8: Does this restaurant take reservations?</p>
+                <Radio.Group options={foodOptionsEight} onChange={(e) => {
+                    state.reservationsFilter = [];
+                    state.reservationsFilter.push(String(e.target.value));
+                    dispatch()
+                }}>
+                </Radio.Group>
+                <hr></hr>
+                <p>Question 9: Does this restaurant offer delivery or catering services?</p>
+                <Radio.Group options={foodOptionsNine} onChange={(e) => {
+                    state.deliveryCateringFilter = [];
+                    state.deliveryCateringFilter.push(String(e.target.value));
+                    dispatch()
+                }}>
+                </Radio.Group>
+                <hr></hr>
+                <p>Question 10: Does this restaurant have dietary restrictions (ex: Gluten Free, Vegan)?</p>
+                <Radio.Group options={foodOptionsTen} onChange={(e) => {
+                    state.dietaryRestrictionsFilter = [];
+                    state.dietaryRestrictionsFilter.push(String(e.target.value));
+                    dispatch()
+                }}>
+                </Radio.Group>
+                <p>
+                    <NavLink exact to="/restaurants" activeClassName="active">Search Available Restaurants</NavLink>
+                </p>
+            </motion.div>
+        </motion.div>
     )
 }
 
