@@ -18,10 +18,9 @@ const SiteHeader = () => {
         out: {
             opacity: 0,
             transition: {
-                delay: 5,
-                duration: 5,
                 when: "afterChildren",
-                staggerChildren: 2
+                duration: 0.25,
+                display: "none"
             },
         }
     };
@@ -34,15 +33,15 @@ const SiteHeader = () => {
             opacity: 1,
             transition: {
                 duration: 1,
-                delay: 0.5
+                delay: 0.75
             },
         },
         out: {
             opacity: 0,
             transition: {
-                when: "beforeChildren",
-                duration: 0.5,
-                delay: 2
+                when: "afterChildren",
+                duration: 0.25,
+                display: "none"
             },
         }
     };
@@ -51,13 +50,13 @@ const SiteHeader = () => {
         <motion.div
             initial="initial"
             animate="in"
-            exit="out"
+            exit={{ opacity: 0 }}
             variants={pageVariants}
             className="site-header">
             <motion.div
                 initial="initial"
                 animate="in"
-                exit="out"
+                exit={{ opacity: 0 }}
                 variants={contentVariants}>
                 <div className="site-header-title-wrap">
                     <h1>Lodogrub.com</h1>
@@ -66,7 +65,7 @@ const SiteHeader = () => {
                     <p>With all of the restaurant choices in the downtown Denver area, it can be tough to pick a spot to eat at!</p>
                     <p>So this site takes all of the guess work out for you.</p>
                     <p>
-                        <NavLink exact to="/questions" activeClassName="active">Find your restaurant</NavLink>
+                        <NavLink exact to="/questions">Find your restaurant</NavLink>
                     </p>
                 </div>
             </motion.div>

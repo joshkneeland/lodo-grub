@@ -82,7 +82,8 @@ function QuestionList() {
             opacity: 1,
             transition: {
                 when: "beforeChildren",
-                duration: 1
+                duration: 0.5,
+                delay: 0.5
             },
         },
         out: {
@@ -90,7 +91,7 @@ function QuestionList() {
             transition: {
                 when: "afterChildren",
                 duration: 0.5,
-                delay: 2
+                display: "none"
             },
         }
     };
@@ -103,15 +104,15 @@ function QuestionList() {
             opacity: 1,
             transition: {
                 when: "beforeChildren",
-                duration: 1,
-                delay: 0.5
+                duration: 0.5,
+                delay: 0.75
             },
         },
         out: {
             opacity: 0,
             transition: {
                 when: "afterChildren",
-                duration: 0.5
+                duration: 0.25
             },
         },
         transition: {
