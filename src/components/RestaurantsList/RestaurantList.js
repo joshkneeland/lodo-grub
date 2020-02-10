@@ -47,11 +47,11 @@ const RestaurantList = () => {
             opacity: 0,
             transition: {
                 when: "afterChildren",
-                duration: 0.5
+                duration: 0
             },
         },
         transition: {
-            duration: 2,
+            duration: 0,
             ease: "easeInOut"
         }
     };
@@ -72,9 +72,8 @@ const RestaurantList = () => {
                 initial="initial"
                 animate="in"
                 exit="out"
-                variants={resultsVariants}
-                className="restaurant-list">
-                <h2>Filtered Restaurants:</h2>
+                variants={resultsVariants}>
+                <h2>Listed Restaurants:</h2>
                 <ul>
                     {state.filteredRestaurants.map(rest => {
                         return <div key={rest.name}>

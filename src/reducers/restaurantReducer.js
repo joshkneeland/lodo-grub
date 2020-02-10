@@ -4,7 +4,7 @@ function restaurantReducer(state, action) {
 
     // Create an array from the list of restaurants
     // This is necessary, because state.filteredRestaurants is an object
-    let newFilteredRestaurants = Array.from(state.filteredRestaurants);
+    let newFilteredRestaurants = Array.from(state.allRestaurants);
 
     // loop over allRest and if style matches then push to filteredRestaurants
 
@@ -169,6 +169,10 @@ function restaurantReducer(state, action) {
                 }
             }
         }
+    }
+
+    if (action && action.type === 'RESET_RESTAURANT_LIST') {
+        newFilteredRestaurants = Array.from(state.allRestaurants);
     }
 
     return {

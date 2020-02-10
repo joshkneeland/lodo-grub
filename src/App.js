@@ -1,7 +1,7 @@
 // REACT SETUP
 import React, { useReducer, useEffect } from 'react';
 import './App.css';
-import { Switch, Route, useLocation } from 'react-router-dom';
+import { Switch, Route, Redirect, useLocation } from 'react-router-dom';
 import { AnimatePresence } from "framer-motion";
 
 // COMPONENTS
@@ -22,8 +22,8 @@ export const MyContext = React.createContext();
 function MyProvider({ children }) {
   const initialState = getState();
   const [state, dispatch] = useReducer(curriedRestaurantReducer, initialState);
-
   const location = useLocation();
+  const performance = window.performance;
 
   useEffect(() => {
     // show filtered results on load
@@ -32,7 +32,12 @@ function MyProvider({ children }) {
       dispatch();
     }
 
-    console.log(location);
+    if (location.pathname === '/questions') {
+      setTimeout(function () {
+        dispatch({ type: 'RESET_RESTAURANT_LIST' });
+      }, 500);
+    }
+
     try {
       // New API
       window.scroll({
@@ -44,7 +49,12 @@ function MyProvider({ children }) {
       // Fallback for older browsers
       window.scrollTo(0, 0);
     }
-  }, [state.initialLoad, location]);
+
+    // Clear sessionStorage on page refresh
+    if (performance && performance.navigation.type === 1) {
+      sessionStorage.clear();
+    }
+  }, [state.initialLoad, location, performance]);
 
   return (
     <MyContext.Provider value={{ state, dispatch }}>
@@ -55,8 +65,6 @@ function MyProvider({ children }) {
 
 function App() {
 
-  // const { state } = React.useContext(MyContext);
-
   const location = useLocation();
 
   return (
@@ -66,13 +74,12 @@ function App() {
           <Route path='/' exact component={SiteHeader} activeClassName="active-route" />
           <Route path='/questions' exact component={QuestionList} activeClassName="active-route" />
           <Route path='/restaurants' exact component={RestaurantList} activeClassName="active-route" />
+          <Redirect from='*' to='/' />
         </Switch>
       </AnimatePresence>
     </div>
   );
 }
-
-// export default App;
 
 export default () => {
   return (

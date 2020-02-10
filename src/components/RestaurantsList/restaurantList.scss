@@ -28,16 +28,21 @@
     p {
         &:last-child {
             padding-bottom: 0.1rem;
-            border-bottom: 1px solid #41AFCC;
-            display: block;
-            width: 122px;
-            font-size: 0.75rem;
+            border-bottom: 1px solid #298199;
+            display: inline;
+            font-size: 1.125rem;
         }
     }
 
     a {
-        color: #41AFCC;
+        color: #298199;
         text-transform: uppercase;
         text-decoration: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .restaurant-list {
+        padding: 2rem;
     }
 }

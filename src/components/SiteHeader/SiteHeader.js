@@ -12,14 +12,14 @@ const SiteHeader = () => {
         in: {
             opacity: 1,
             transition: {
-                duration: 1
+                duration: 0.75
             },
         },
         out: {
             opacity: 0,
             transition: {
                 when: "afterChildren",
-                duration: 0.25,
+                duration: 0.125,
                 display: "none"
             },
         }
@@ -33,7 +33,7 @@ const SiteHeader = () => {
             opacity: 1,
             transition: {
                 duration: 1,
-                delay: 0.75
+                delay: 0.5
             },
         },
         out: {

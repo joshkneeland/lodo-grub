@@ -20,15 +20,14 @@
 
     .site-header-body-wrap {
         position: absolute;
-        bottom: 2rem;
+        bottom: 3rem;
         left: 3rem;
 
         p:last-child {
             padding-bottom: 0.1rem;
             border-bottom: 1px solid #41AFCC;
-            display: block;
-            width: 143px;
-            font-size: 0.75rem;
+            display: inline;
+            font-size: 1.125rem;
         }
     }
 
@@ -61,5 +60,18 @@
         color: #41AFCC;
         text-transform: uppercase;
         text-decoration: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .site-header h1 {
+        font-size: 1rem;
+        letter-spacing: 0.5rem;
+        padding: 0;
+    }
+
+    .site-header .site-header-body-wrap {
+        bottom: 2rem;
+        left: 2rem;
     }
 }

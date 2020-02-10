@@ -2,6 +2,7 @@ export default function getState() {
     return {
         filteredRestaurants: [],
         initialLoad: false,
+        resetRestaurantList: false,
         styleFilter: [],
         hoursFilter: [],
         timeToEatFilter: [],
