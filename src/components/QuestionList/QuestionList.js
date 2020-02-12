@@ -13,7 +13,7 @@ function QuestionList() {
         { label: 'Casual Dining', value: 'Casual Dining' },
         { label: 'Elegant Dining', value: 'Elegant Dining' },
         { label: 'Fast Food', value: 'Fast Food' },
-        { label: 'Food Truck', value: 'Food Truck' }
+        { label: 'Food Truck/Stand', value: 'Food Truck' }
     ];
 
     const foodOptionsTwo = [

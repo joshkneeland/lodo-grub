@@ -73,11 +73,11 @@ const RestaurantList = () => {
                 animate="in"
                 exit="out"
                 variants={resultsVariants}>
-                <h2>Listed Restaurants:</h2>
+                <h2>Here are <strong> {state.filteredRestaurants.length} </strong> restaurants that match your criteria:</h2>
                 <ul>
                     {state.filteredRestaurants.map(rest => {
                         return <div key={rest.name}>
-                            <li key={rest.name}>{rest.name}</li>
+                            <li key={rest.name}><strong>{rest.name}</strong></li>
                             <li key={rest.restaurantStyle}>{rest.restaurantStyle}</li>
                             <li key={rest.restaurantEthnicity}>{rest.restaurantEthnicity}</li>
                             <li key={rest.mealCost}>{rest.mealCost}</li>

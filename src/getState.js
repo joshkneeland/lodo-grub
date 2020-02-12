@@ -15,6 +15,109 @@ export default function getState() {
         dietaryRestrictionsFilter: [],
         allRestaurants: [
             {
+                name: 'Anise Modern Vietnamese Eatery',
+                restaurantStyle: 'Casual Dining',
+                restaurantEthnicity: 'Asian',
+                timeToEatIndex: '30 - 60 minutes',
+                mealCost: 'Affordable',
+                mealHealthiness: 'Somewhat Healthy',
+                hoursOfOperation: [
+                    'Lunch',
+                    'Dinner'
+                ],
+                hasAlcohol: true,
+                hasReservations: true,
+                hasDeliveryCatering: true,
+                hasDietaryRestrictions: true,
+                address: '865 N Lincoln St',
+                city: 'Denver',
+                state: 'CO',
+                zipCode: '80203'
+            },
+            {
+                name: 'Armenian Shish Kabob',
+                restaurantStyle: 'Food Truck',
+                restaurantEthnicity: 'Other',
+                timeToEatIndex: '0 - 30 minutes',
+                mealCost: 'Affordable',
+                mealHealthiness: 'Somewhat Healthy',
+                hoursOfOperation: [
+                    'Lunch',
+                    'Dinner'
+                ],
+                hasAlcohol: false,
+                hasReservations: false,
+                hasDeliveryCatering: false,
+                hasDietaryRestrictions: false,
+                address: '16th St Mall between Market St & Larimer St',
+                city: 'Denver',
+                state: 'CO',
+                zipCode: '80202'
+            },
+            {
+                name: 'Avelina',
+                restaurantStyle: 'Casual Dining',
+                restaurantEthnicity: 'American',
+                timeToEatIndex: '30 - 60 minutes',
+                mealCost: 'Affordable',
+                mealHealthiness: 'Somewhat Healthy',
+                hoursOfOperation: [
+                    'Breakfast',
+                    'Lunch',
+                    'Dinner'
+                ],
+                hasAlcohol: true,
+                hasReservations: true,
+                hasDeliveryCatering: true,
+                hasDietaryRestrictions: true,
+                address: '1550 17th Street',
+                city: 'Denver',
+                state: 'CO',
+                zipCode: '80202'
+            },
+            {
+                name: 'Brad\'s Pit BBQ',
+                restaurantStyle: 'Food Truck',
+                restaurantEthnicity: 'American',
+                timeToEatIndex: '0 - 30 minutes',
+                mealCost: 'Affordable',
+                mealHealthiness: 'Cheap',
+                hoursOfOperation: [
+                    'Lunch',
+                    'Dinner',
+                    'Late Night'
+                ],
+                hasAlcohol: false,
+                hasReservations: false,
+                hasDeliveryCatering: true,
+                hasDietaryRestrictions: false,
+                address: 'N/A',
+                city: 'Littleton',
+                state: 'CO',
+                zipCode: '80123'
+            },
+            {
+                name: 'Chick-fil-A',
+                restaurantStyle: 'Fast Food',
+                restaurantEthnicity: 'American',
+                timeToEatIndex: '0 - 30 minutes',
+                mealCost: 'Cheap',
+                mealHealthiness: 'Not Healthy',
+                hoursOfOperation: [
+                    'Breakfast',
+                    'Lunch',
+                    'Dinner'
+                ],
+                hasAlcohol: false,
+                hasReservations: false,
+                hasDeliveryCatering: false,
+                hasDietaryRestrictions: false,
+                address: '3725 E Colfax Ave',
+                city: 'Denver',
+                state: 'CO',
+                zipCode: '80206'
+            },
+            {
                 name: 'Citizen Rail',
                 restaurantStyle: 'Casual Dining',
                 restaurantEthnicity: 'American',
